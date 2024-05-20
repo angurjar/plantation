@@ -18,7 +18,7 @@ export default function Home() {
                 priority
               />
             </Link>
-            <p>our mission</p>
+            <p>our</p>
           </div>
           {/* Navigation Links */}
           <div className="flex space-x-4">
@@ -31,8 +31,8 @@ export default function Home() {
             <Link href="/about" passHref>
               <span className="cursor-pointer">About</span>
             </Link>
-            <Link href="/contact" passHref>
-              <span className="cursor-pointer">Contact</span>
+            <Link href="/ourmission" passHref>
+              <span className="cursor-pointer">OurTeam & Mission</span>
             </Link>
           </div>
         </div>
