@@ -55,6 +55,7 @@ const Plans: React.FC = () => {
   const [showFarmerDetails, setShowFarmerDetails] = useState(false);
   const [hideSelection, setHideSelection] = useState(false);
   const [isHomePage, setIsHomePage] = useState(false);
+  const [totalBookings, setTotalBookings] = useState<number>(0);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -63,7 +64,8 @@ const Plans: React.FC = () => {
 
   const handleFinalSubmit = (): void => {
     alert("Your plantation booking has been confirmed.");
-    setIsHomePage(true); // Redirect to home page
+    setTotalBookings(totalBookings + 1);
+    setIsHomePage(true);
   };
 
   const handleChange = (
@@ -140,6 +142,9 @@ const Plans: React.FC = () => {
                 )
               )}
           </ul>
+          <div className={styles.card}>
+            <h3>Total Bookings: {totalBookings}</h3>
+          </div>
         </main>
         <footer className={styles.footer}>
           <p>&copy; 2024 Plantation Booking Service. All rights reserved.</p>
@@ -149,14 +154,10 @@ const Plans: React.FC = () => {
   }
 
   return (
-    <div
-      className={styles.container}
-      style={{ backgroundImage: "url(/images/background.jpg)" }}
-    >
+    <div className={styles.container}>
       <header className={styles.header}>
         <h1>Plantation Booking Service</h1>
       </header>
-
       <main className={styles.main}>
         {!hideSelection && (
           <>
@@ -166,20 +167,16 @@ const Plans: React.FC = () => {
               <option value="flowers">Flowers</option>
               <option value="fruits">Fruits</option>
             </select>
-
             {formData.treeType && renderTreeTypes()}
           </>
         )}
-
         <button onClick={() => setHideSelection(!hideSelection)}>
           {hideSelection ? "Show Selection" : "Hide Selection"}
         </button>
-
         <h2>Would you like to see farmer details?</h2>
         <button onClick={() => setShowFarmerDetails(!showFarmerDetails)}>
           {showFarmerDetails ? "Hide Farmer Details" : "Show Farmer Details"}
         </button>
-
         {showFarmerDetails && (
           <>
             <h2>Select a Farmer</h2>
@@ -191,12 +188,10 @@ const Plans: React.FC = () => {
                 </option>
               ))}
             </select>
-
             <h2>Farmers:</h2>
             <div className={styles.farmerContainer}>{renderFarmers()}</div>
           </>
         )}
-
         <h2>Book Plantation</h2>
         {confirmation ? (
           <div className={styles.confirmation}>
@@ -255,7 +250,6 @@ const Plans: React.FC = () => {
           </form>
         )}
       </main>
-
       <footer className={styles.footer}>
         <p>&copy; 2024 Plantation Booking Service. All rights reserved.</p>
       </footer>
