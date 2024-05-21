@@ -18,21 +18,20 @@ export default function Home() {
                 priority
               />
             </Link>
-            <p>our</p>
           </div>
           {/* Navigation Links */}
           <div className="flex space-x-4">
             <Link href="/" passHref>
-              <span className="cursor-pointer">Home</span>
+              <a className="cursor-pointer">Home</a>
             </Link>
             <Link href="/plans" passHref>
-              <span className="cursor-pointer">Plans</span>
+              <a className="cursor-pointer">Plans</a>
             </Link>
             <Link href="/about" passHref>
-              <span className="cursor-pointer">About</span>
+              <a className="cursor-pointer">About</a>
             </Link>
             <Link href="/ourmission" passHref>
-              <span className="cursor-pointer">OurTeam & Mission</span>
+              <a className="cursor-pointer">Our Team & Mission</a>
             </Link>
           </div>
         </div>
@@ -41,7 +40,7 @@ export default function Home() {
       <main className="flex-grow flex flex-col items-center justify-between p-24">
         {/* Navigation */}
         <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-          <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+          <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
             our area &nbsp;
             <code className="font-mono font-bold"> Our world</code>
           </p>
@@ -63,13 +62,13 @@ export default function Home() {
           <h1 className="text-3xl font-bold mb-8">Choose Your Tree Type:</h1>
           <ul className="flex flex-wrap justify-center gap-4">
             <li className="bg-gray-200 p-4 rounded-md cursor-pointer hover:bg-gray-300 transition duration-300">
-              <Link href="/plans?type=flowers">
-                <i>Flowers</i>
+              <Link href="/plans?type=flowers" passHref>
+                <a>Flowers</a>
               </Link>
             </li>
             <li className="bg-gray-200 p-4 rounded-md cursor-pointer hover:bg-gray-300 transition duration-300">
-              <Link href="/plans?type=fruits">
-                <i>Fruits</i>
+              <Link href="/plans?type=fruits" passHref>
+                <a>Fruits</a>
               </Link>
             </li>
             {/* Add more tree types as needed */}
@@ -84,15 +83,17 @@ export default function Home() {
             environment. Join us in our mission to make the world a greener
             place.
           </p>
-          <Link href="/about">Learn More</Link>
+          <Link href="/about" passHref>
+            <a>Learn More</a>
+          </Link>
         </section>
 
         {/* Call-to-Action Button */}
         <div className="my-16">
-          <Link href="/plans">
-            <p className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-full text-lg transition duration-300">
+          <Link href="/plans" passHref>
+            <a className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-full text-lg transition duration-300">
               Book Your Plantation Now
-            </p>
+            </a>
           </Link>
         </div>
       </main>
